@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { MutableRefObject, useEffect, useState } from "react";
 
 function useOnScreen<T extends Element>(
@@ -22,7 +23,7 @@ function useOnScreen<T extends Element>(
     return () => {
       observer.unobserve(ref.current);
     };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, [ref,rootMargin]); // Empty array ensures that effect is only run on mount and unmount
   return isIntersecting;
 }
 export default useOnScreen;

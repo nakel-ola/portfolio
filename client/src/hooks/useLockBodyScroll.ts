@@ -6,6 +6,6 @@ export const useLockBodyScroll = () => {
 
     document.body.style.overflow = "hidden";
 
-    return () => document.body.style.overflow = originalStyle;
+    return () => {document.body.style.overflow = originalStyle};
   }, []);
 };
