@@ -1,0 +1,151 @@
+{
+  "about": {
+    "bio": "A self taught front-end developer who is able to realise project from the ground up. I am very versed in all the key language and am able to design, code and deploy in an organised and efficient manner.",
+    "image": "/profile_pic.jpg",
+    "name": "Nunu Olamilekan",
+    "tel": "+234 915 266 3635",
+    "address": "",
+    "email": "nunuolamilekan@gmail.com",
+    "resume": "/Nunu Olamilekan  - Resume.pdf"
+  },
+  "skills": [
+    {
+      "name": "HTML5",
+      "image": "/html-logo.png",
+      "color": "bg-red-200",
+      "percentage": 98
+    },
+    {
+      "name": "CSS3",
+      "image": "/css-logo.png",
+      "color": "bg-blue-200",
+      "percentage": 98
+    },
+    {
+      "name": "Sass",
+      "image": "/sass-logo.png",
+      "color": "bg-pink-200",
+      "percentage": 85
+    },
+    {
+      "name": "Tailwind css",
+      "image": "/tailwindcss-logo.svg",
+      "color": "bg-sky-200",
+      "percentage": 95
+    },
+    {
+      "name": "Javascript",
+      "image": "/javascript-logo.png",
+      "color": "bg-yellow-200",
+      "percentage": 98
+    },
+    {
+      "name": "Typescript",
+      "image": "/typescript-logo.png",
+      "color": "bg-blue-200",
+      "percentage": 82
+    },
+    {
+      "name": "NodeJs",
+      "image": "/nodejs-logo.png",
+      "color": "bg-lime-200",
+      "percentage": 98
+    },
+    {
+      "name": "React.js",
+      "image": "/react-logo.png",
+      "color": "bg-cyan-200",
+      "percentage": 98
+    },
+    {
+      "name": "Next.js",
+      "image": "/nextjs-logo.svg",
+      "color": "bg-slate-200",
+      "percentage": 98
+    },
+    {
+      "name": "React Native",
+      "image": "/reactnative-logo.png",
+      "color": "bg-blue-200",
+      "percentage": 82
+    },
+    {
+      "name": "Electron",
+      "image": "/electron-logo.png",
+      "color": "bg-gray-700",
+      "percentage": 77
+    },
+    {
+      "name": "MUI",
+      "image": "/mui-logo.svg",
+      "color": "bg-blue-200",
+      "percentage": 98
+    },
+    {
+      "name": "Redux",
+      "image": "/redux-logo.png",
+      "color": "bg-purple-200",
+      "percentage": 98
+    },
+    {
+      "name": "Graphql",
+      "image": "/graphql-logo.png",
+      "color": "bg-pink-200",
+      "percentage": 88
+    },
+    {
+      "name": "Git",
+      "image": "/git-logo.png",
+      "color": "bg-red-200",
+      "percentage": 85
+    }
+  ],
+  "service": [
+    {
+      "title": "Frontend Developer",
+      "image": "/How_to_Become_a_Back_End_Developer.jpg",
+      "description": "I am a frontend developer with a passion for building beautiful and functioning web application"
+    },
+    {
+      "title": "Web Designs",
+      "image": "/full_front_back.jpg",
+      "description": "I am a web designer with a passion for building beautiful and functioning web application"
+    },
+    {
+      "title": "React Native",
+      "image": "/typical-process-for-a-successful-mobile-development.jpeg",
+      "description": "I am a React Native with a passion for building beautiful and functioning mobile application"
+    },
+    {
+      "title": "Backend Developer",
+      "image": "/frontendbackend.jpg",
+      "description": "I am a backend developer with a passion for building beautiful and functioning web application"
+    }
+  ],
+  "projects": [
+    {
+        "name": "Rock, Paper, Scissors",
+        "category": ["Web App"],
+        "description": "This a game in which the each player simultaneously forms one of three shapes with outstretched hand. These shapes are 'rock', 'paper', 'scissors'. I add additional 2 shapes more which are 'spock','lizard'",
+        "tech": ["Next.js","Tailwind css","Typescript", "Git"],
+        "images": ["/rock-paper-scissors-desktop-preview.png","rock-paper-scissors-desktop-preview-2.png","/rock-paper-scissors-mobile-preview.png","/rock-paper-scissors-desktop-preview-3.png","/rock-paper-scissors-mobile-preview-2.png"],
+        "link": "https://rock-paper-scissors.vercel.app/"
+    },
+    {
+        "name": "Sneakers",
+        "category": ["Web App"],
+        "description": "This is an e-commerce product page for sneakers. It includes a cart,image slider, add product and more.",
+        "tech": ["React.js", "CSS3","Javascript","Git"],
+        "images": ["/sneakers-desktop-preview.png","/sneakers-desktop-preview-3.png","/sneakers-desktop-preview-2.png","/sneakers-mobile-preview.png","/sneakers-mobile-preview-2.png"],
+        "link": "https://ecommerce-product-page-eight-khaki.vercel.app/"
+    },
+    {
+        "name": "Huddle",
+        "category": ["Web App"],
+        "description": "This is a responsive huddle landing page ",
+        "tech": ["HTML5", "CSS3","Javascript","Git"],
+        "images": ["/huddle-desktop-preview.png","/huddle-desktop-preview-2.png","/huddle-desktop-preview-3.png","/huddle-mobile-preview.png","/huddle-mobile-preview-2.png"],
+        "link": "https://huddle-sepia.vercel.app/"
+    }
+  ]
+}
