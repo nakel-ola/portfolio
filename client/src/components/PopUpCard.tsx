@@ -79,8 +79,8 @@ const PopUpCard = ({
         ref={ref}
         className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] bg-neutral-800 overflow-hidden scrollbar-hide"
       >
-        <div className="relative grid place-items-center bg-transparent scrollbar-hide mb-auto">
-          <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide">
+        <div className="relative grid place-items-center bg-transparent scrollbar-hide ">
+          <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide mb-auto">
             {images.map((image: string, index: number) => (
               <ImageCard
                 key={index}
