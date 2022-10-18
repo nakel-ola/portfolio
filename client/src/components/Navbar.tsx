@@ -61,7 +61,7 @@ const Navbar = ({
     >
       
       <div className="p-2 flex cursor-pointer">
-        <p className="text-2xl font-bold text-blue-600 mt-auto">Portfolio•</p>
+        <p className="text-2xl font-bold text-blue-600 mt-auto">• Olamilekan</p>
       </div>
 
       <div className="space-x-10 hidden md:flex transition-all duration-300">

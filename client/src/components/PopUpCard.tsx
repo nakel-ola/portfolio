@@ -79,7 +79,7 @@ const PopUpCard = ({
         ref={ref}
         className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] bg-neutral-800 overflow-hidden scrollbar-hide"
       >
-        <div className="relative grid place-items-center bg-transparent scrollbar-hide">
+        <div className="relative grid place-items-center bg-transparent scrollbar-hide mb-auto">
           <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide">
             {images.map((image: string, index: number) => (
               <ImageCard
@@ -100,23 +100,21 @@ const PopUpCard = ({
 
           {active !== 0 && (
             <div
-              className="absolute hidden md:inline top-[50%] left-0 translate-y-[-50%] p-[5px] hover:scale-110 transition-transform duration-300 ease hover:bg-slate-50/5 rounded-full bg-transparent z-20"
+              className="absolute top-[50%] left-0 translate-y-[-50%] p-[5px] hover:scale-110 transition-transform duration-300 ease hover:bg-slate-50/5 rounded-full bg-transparent z-20"
               onClick={handleBack}
             >
-              <IoChevronBack className="text-5xl text-white drop-shadow-xl bg-transparent" />
+              <IoChevronBack className="md:text-5xl text-3xl text-white drop-shadow-xl bg-transparent" />
             </div>
           )}
 
           {active !== images.length - 1 && (
             <div
-              className="absolute hidden md:inline top-[50%] right-2 rounded-full translate-y-[-50%] p-[5px] hover:scale-110 hover:bg-slate-50/5 transition-transform duration-300 ease bg-transparent z-20"
+              className="absolute top-[50%] right-2 rounded-full translate-y-[-50%] p-[5px] hover:scale-110 hover:bg-slate-50/5 transition-transform duration-300 ease bg-transparent z-20"
               onClick={handleForward}
             >
-              <IoChevronForward className="text-5xl text-white drop-shadow-xl bg-transparent" />
+              <IoChevronForward className="md:text-5xl text-3xl text-white drop-shadow-xl bg-transparent" />
             </div>
           )}
-
-          <div className="absolute top-0 left-0 h-full w-full bg-transparent"></div>
         </div>
 
         <div className="flex justify-center items-center mt-4">
