@@ -38,7 +38,7 @@ function ImageCard({
   return (
     <div
       ref={ref}
-      className="w-full md:w-fit max-h-[300px] md:max-h-[500px] md:h-[500px] overflow-hidden rounded-lg shrink-0 mx-2"
+      className="w-full md:w-fit max-h-[300px] md:max-h-[500px] md:h-[500px] overflow-hidden rounded-lg shrink-0 mx-2 mb-auto"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -80,7 +80,7 @@ const PopUpCard = ({
         className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] bg-neutral-800 overflow-hidden scrollbar-hide"
       >
         <div className="relative grid place-items-center bg-transparent scrollbar-hide ">
-          <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide mb-auto">
+          <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide">
             {images.map((image: string, index: number) => (
               <ImageCard
                 key={index}
