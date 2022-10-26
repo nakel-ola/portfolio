@@ -136,13 +136,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: data,
   };
 };
-
-// export async function getStaticProps() {
-//   const props = await fetch("http://localhost:3000/api/offline").then((res) =>
-//     res.json()
-//   );
-
-//   return {
-//     props,
-//   };
-// }
