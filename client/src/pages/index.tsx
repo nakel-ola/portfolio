@@ -46,8 +46,9 @@ export default function Home({
   return (
     <div className="w-full grid place-items-center">
       <Head>
-        <title>Olamilekan | Personal portfolio</title>
-        <meta name="description" content="Personal portfolio" />
+        <title>Olamilekan | Personal website for Nunu Olamilekan</title>
+        <meta name="description" content="Personal website for Nunu Olamilekan" />
+        <link rel="icon" href="/logo-search-grid-2x.png" />
       </Head>
 
       <main className="w-full grid place-items-center 2xl:w-[80%]">
