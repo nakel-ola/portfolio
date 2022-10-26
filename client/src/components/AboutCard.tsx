@@ -52,7 +52,7 @@ const AboutCard = ({ about }: { about: About }) => {
                 </div>
               </div>
 
-              <div className="">
+              <div className="w-[85%] md:w-fit">
                 <div className="">
                   <p className="text-lg font-bold">Bio</p>
                   <p className="text-neutral-500 md:py-[8px] md:px-[8px] py-[8px] md:max-w-[40vw]">
