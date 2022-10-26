@@ -47,7 +47,7 @@ export default function Home({
     <div className="w-full grid place-items-center">
       <Head>
         <title>Olamilekan | Personal portfolio</title>
-        <meta name="description" content="Portfolio" />
+        <meta name="description" content="Personal portfolio" />
       </Head>
 
       <main className="w-full grid place-items-center 2xl:w-[80%]">
