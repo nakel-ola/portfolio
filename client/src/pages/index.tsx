@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { AnimatePresence } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
@@ -8,7 +7,6 @@ import { Link } from "react-scroll";
 import AboutCard, { About } from "../components/AboutCard";
 import ContactCard from "../components/ContactCard";
 import HeroCard from "../components/HeroCard";
-import Menubar from "../components/Menubar";
 import Navbar from "../components/Navbar";
 import PopUpCard from "../components/PopUpCard";
 import ProjectsCard, { Project } from "../components/ProjectsCard";
@@ -34,7 +32,6 @@ export default function Home({
   projects,
 }: HomePropType) {
   const [active, setActive] = useState(0);
-  const [toggle, setToggle] = useState(false);
   const [details, setDetails] = useState<Details>({
     active: false,
     category: [],
@@ -49,23 +46,22 @@ export default function Home({
   return (
     <div className="w-full grid place-items-center">
       <Head>
-        <title>Olamilekan</title>
+        <title>Olamilekan | Personal portfolio</title>
         <meta name="description" content="Portfolio" />
       </Head>
 
       <main className="w-full grid place-items-center 2xl:w-[80%]">
-        <Navbar
-          active={active}
-          setActive={setActive}
-          setToggle={setToggle}
-          toggle={toggle}
-        />
+        <Navbar setActive={setActive} />
         <HeroCard />
 
-        <AboutCard about={about}/>
-        <SkillsCard skills={skills}/>
-        <ServiesCard services={services}/>
-        <ProjectsCard setDetails={setDetails} details={details} projects={projects}/>
+        <AboutCard about={about} />
+        <SkillsCard skills={skills} />
+        <ServiesCard services={services} />
+        <ProjectsCard
+          setDetails={setDetails}
+          details={details}
+          projects={projects}
+        />
         <ContactCard />
 
         <div className="fixed top-[50%] right-0 translate-y-[-50%] h-32 w-10 md:flex hidden items-center justify-evenly flex-col bg-transparent">
@@ -104,7 +100,7 @@ export default function Home({
             setActive(items.length - 1 === active ? 0 : active + 1)
           }
         >
-          <div className="fixed h-[40px] w-[40px] rounded-full bg-blue-600 bottom-10 right-10 flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 ease text-white">
+          <div className="fixed h-[40px] w-[40px] rounded-full bg-blue-600 bottom-10 right-10 flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 ease text-white z-50">
             {items.length - 1 === active ? (
               <IoChevronUp className="bg-transparent text-[30px]" />
             ) : (
@@ -112,16 +108,6 @@ export default function Home({
             )}
           </div>
         </Link>
-
-        <AnimatePresence>
-          {toggle && (
-            <Menubar
-              setActive={setActive}
-              toggle={toggle}
-              setToggle={setToggle}
-            />
-          )}
-        </AnimatePresence>
 
         {details.active && (
           <PopUpCard
@@ -147,9 +133,9 @@ export default function Home({
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchData();
   return {
-    props: data
-  }
-}
+    props: data,
+  };
+};
 
 // export async function getStaticProps() {
 //   const props = await fetch("http://localhost:3000/api/offline").then((res) =>

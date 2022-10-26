@@ -1,58 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import clsx from "clsx";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
-import { IconType } from "react-icons";
-import { IoLogoGithub, IoLogoInstagram, IoMail } from "react-icons/io5";
-import ImageCard from "./ImageCard";
 import SmallImage from "./SmallImage";
 
-interface Item {
-  name: string;
-  value: string;
-  link: string;
-  Icon: IconType;
-}
-
 const HeroCard = () => {
-  const [toggle, setToggle] = useState<string>("mail");
-
-  const items: Item[] = [
-    {
-      name: "mail",
-      value: "nunuolamilekan@gmail.com",
-      link: "mailto:nunuolamilekan@gmail.com",
-      Icon: IoMail,
-    },
-    {
-      name: "instagram",
-      value: "https://www.instagram.com/lakky__t/",
-      link: "https://www.instagram.com/lakky__t/",
-      Icon: IoLogoInstagram,
-    },
-    {
-      name: "github",
-      value: "https://github.com/olamilekan21",
-      link: "https://github.com/olamilekan21",
-      Icon: IoLogoGithub,
-    },
-  ];
-
-  const selected = items.find((item: any) => item.name === toggle)!;
-
-  const truncate = (text: string, num: number) =>
-    text.length > num ? text.substring(0, num) + "..." : text;
-
   const name = "<Olamilekan />";
 
   return (
-    <section
-      id="home"
-      className="flex items-center 2xl:justify-center lg:justify-around min-h-screen lg:h-screen 2xl:h-[calc(80vh)] w-full border-b-4 border-neutral-700 flex-col lg:flex-row 2xl:flex-col pt-[100px] md:mt-0 lg:overflow-hidden"
-    >
-      <SmallImage />
-      <div className="lg:h-full 2xl:h-fit flex flex-col justify-center mt-10 lg:mt-0 2xl:mt-10">
-        <motion.div className="md:mt-auto md:max-w-[60vw] 2xl:w-[30vw] lg:w-[30vw] flex flex-col text-center lg:text-left 2xl:text-center justify-center text-white">
+    <section id="home" className="w-full relative bg-radius">
+      <div className="flex items-center justify-center 2xl:justify-center lg:justify-around min-h-screen lg:h-screen 2xl:h-[calc(80vh)] w-full flex-col lg:flex-row lg:overflow-hidden relative bg-transparent">
+        <motion.div className="md:max-w-[60vw] 2xl:w-[30vw] lg:w-[30vw] flex flex-col text-center lg:text-left 2xl:text-center text-white bg-transparent">
           <motion.p
             animate={{ opacity: 1, transition: { staggerChildren: 0.5 } }}
             initial={{ opacity: 0 }}
@@ -84,37 +40,51 @@ const HeroCard = () => {
           </motion.p>
         </motion.div>
 
-        <div className="lg:mt-auto 2xl:mt-10 mt-10 mb-5 flex items-center justify-center flex-col">
-          <div className="group shadow-md py-2 px-3 bg-neutral-800 w-fit rounded-lg transition-all duration-300 ease cursor-pointer">
-            <a
-              href={selected.link}
-              target="_blank"
-              rel="noreferrer"
-              className=" text-white group-hover:text-blue-500 group-hover:underline"
-            >
-              {truncate(selected.value, 26)}
-            </a>
-          </div>
+        <SmallImage />
+      </div>
 
-          <div className="flex space-x-5 mt-5 w-full justify-center">
-            {items.map(({ Icon, name }, index) => (
-              <div
-                key={index}
-                onClick={() => setToggle(name)}
-                className={clsx(
-                  "h-[35px] w-[35px] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95",
-                  toggle === name ? "bg-blue-600" : "bg-neutral-800 shadow-md"
-                )}
-              >
-                <Icon className="text-[25px] text-white" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className=" w-[30%] relative h-full lg:grid place-items-center justify-center hidden mt-auto 2xl:hidden">
-        <ImageCard />
-      </div>
+      <ul className="absolute top-0 left-0 w-full h-full overflow-hidden [&_li]:absolute [&_li]:block [&_li]:list-none [&_li]:min-w-[20px] [&_li]:min-h-[20px] [&_li]:bg-black/20 [&_li]:animate-spin-slow z-10 [&_li]:bottom-[-150px]">
+        <li
+          className="left-[25%] w-[80px] h-[80px]"
+          style={{ animationDelay: "0s" }}
+        ></li>
+        <li
+          className="left-[10%] w-[20px] h-[20px]"
+          style={{ animationDelay: "2s", animationDuration: "12s" }}
+        ></li>
+        <li
+          className="left-[70%] w-[20px] h-[20px]"
+          style={{ animationDelay: "4s" }}
+        ></li>
+        <li
+          className="left-[40%] w-[60px] h-[60px]"
+          style={{ animationDelay: "0s", animationDuration: "18s" }}
+        ></li>
+        <li
+          className="left-[65%] w-[20px] h-[20px]"
+          style={{ animationDelay: "0s" }}
+        ></li>
+        <li
+          className="left-[75%] w-[110px] h-[110px]"
+          style={{ animationDelay: "3s" }}
+        ></li>
+        <li
+          className="left-[35%] w-[150px] h-[150px]"
+          style={{ animationDelay: "7s" }}
+        ></li>
+        <li
+          className="left-[50%] w-[25px] h-[25px]"
+          style={{ animationDelay: "15s", animationDuration: "45s" }}
+        ></li>
+        <li
+          className="left-[20%] w-[15px] h-[15px]"
+          style={{ animationDelay: "2s", animationDuration: "35s" }}
+        ></li>
+        <li
+          className="left-[85%] w-[150px] h-[150px]"
+          style={{ animationDelay: "0s", animationDuration: "11s" }}
+        ></li>
+      </ul>
     </section>
   );
 };

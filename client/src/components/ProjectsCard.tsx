@@ -39,22 +39,7 @@ const ProjectsCard = ({details,setDetails,projects}: {
         </p>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center my-[40px]">
-        {categories.map((text: string, index: number) => (
-          <div
-            key={index}
-            className={clsx(
-              "shadow-md py-2 px-3 rounded-lg m-2 hover:scale-105 active:scale-95 transition-all duration-300 ease cursor-pointer shrink-0",
-              active === text ? "bg-blue-600" : "bg-neutral-800"
-            )}
-            onClick={() => setActive(text)}
-          >
-            <p className=" whitespace-nowrap">{text}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid place-items-center">
+      <div className="grid place-items-center mt-[40px]">
         <div className="lg:w-[77.3%] md:w-[80%] w-[100%] flex flex-wrap justify-center">
           {items.map((project: Project, index: number) => (
             <Card
@@ -80,7 +65,7 @@ function Card(props: {
     text.length > num ? text.substring(0, num) + "..." : text;
   return (
     <div
-      className="shadow-sm bg-neutral-800 shadow-neutral-900 md:w-56 w-[85%] flex items-center flex-col m-2 rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300 ease"
+      className="shadow-md bg-[#212121]  md:w-56 w-[85%] flex items-center flex-col m-2 rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300 ease"
       onClick={props.onClick}
     >
       <div className="w-[95%] md:h-36 h-[200px] mt-[5px]  relative">

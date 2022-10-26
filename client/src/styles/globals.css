@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply p-0 m-0 bg-dark;
+    @apply p-0 m-0 bg-dark ;
   }
   a {
     @apply text-inherit decoration-transparent;
@@ -69,7 +69,6 @@
   transform: rotate(calc(360deg * var(--i)));
 }
 
-
 .glow {
   box-shadow: 0 0 60px #2563eb;
 }
@@ -92,4 +91,15 @@
   .glow-p:hover .glow {
     box-shadow: 0 0 20px #2563eb;
   }
+}
+
+.bg-radius {
+  background-color: #212123;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #212123 40px
+    ),
+    repeating-linear-gradient(#19191b55, #19191b);
 }

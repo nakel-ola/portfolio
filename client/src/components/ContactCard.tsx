@@ -93,7 +93,7 @@ const ContactCard = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="text-base py-2 px-3 text-black w-full border-0 outline-0"
+              className="text-base py-2 px-3 text-black w-full border-0 outline-0 bg-transparent"
               placeholder="You Name"
             />
           </div>
@@ -103,7 +103,7 @@ const ContactCard = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="text-base py-2 px-3 text-black w-full border-0 outline-0"
+              className="text-base py-2 px-3 text-black w-full border-0 outline-0 bg-transparent"
               placeholder="You Email"
             />
           </div>
@@ -114,13 +114,13 @@ const ContactCard = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="Your Message"
-              className="text-base py-2 px-3 text-black w-full border-0 outline-0"
+              className="text-base py-2 px-3 text-black w-full border-0 outline-0 bg-transparent"
             ></textarea>
           </div>
 
           <button
             disabled={!form.email || !form.name || !form.message}
-            className="shadow-lg my-2 rounded-full py-1 px-3 transition-all duration-300 ease disabled:bg-neutral-400 disabled:hover:scale-100 disabled:shadow-none disabled:active:scale-100 bg-blue-600 text-lg hover:scale-105 hover:shadow-blue-900 active:scale-95"
+            className="shadow-lg my-2 rounded-full py-1 px-3 transition-all duration-300 ease disabled:opacity-40 disabled:scale-100 disabled:shadow-none bg-blue-600 text-lg hover:scale-105 hover:shadow-blue-900 active:scale-95"
           >
             Send Message
           </button>

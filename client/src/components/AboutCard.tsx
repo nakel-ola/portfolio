@@ -32,7 +32,7 @@ async function downloadFile(url: string, fileName: string) {
 
 const AboutCard = ({ about }: { about: About }) => {
   return (
-    <div id="about" className="w-full pt-3 pb-8 border-b-4 border-neutral-700">
+    <div id="about" className="w-full pt-3 pb-8">
       {about ? (
         <>
           <div className="min-h-screen pt-[40px] snap-start text-white">
@@ -40,8 +40,8 @@ const AboutCard = ({ about }: { about: About }) => {
               <p className="text-5xl font-extrabold text-white">About <span className="text-blue-600 ">Me</span></p>
             </div>
 
-            <div className="flex w-full h-full  md:space-x-20 justify-center mt-[40px]">
-              <div className="hidden md:inline flex-[0.5]">
+            <div className="flex w-full h-full justify-center mt-[40px]  md:justify-evenly">
+              <div className="hidden md:inline">
                 <div className="h-[350px] w-[300px] overflow-hidden rounded-lg ml-auto">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -52,7 +52,7 @@ const AboutCard = ({ about }: { about: About }) => {
                 </div>
               </div>
 
-              <div className="flex-[0.8]">
+              <div className="">
                 <div className="">
                   <p className="text-lg font-bold">Bio</p>
                   <p className="text-neutral-500 md:py-[8px] md:px-[8px] py-[8px] md:max-w-[40vw]">
@@ -62,7 +62,7 @@ const AboutCard = ({ about }: { about: About }) => {
 
                 <div className="mt-[15px]">
                   <p className="text-lg font-bold">Contacts</p>
-                  <div className="md:flex">
+                  <div className="lg:flex">
                     <div className="">
                       <p className="text-neutral-500 md:py-[8px] md:px-[8px] py-[8px]">
                         <strong className="text-neutral-400">Full Name:</strong>{" "}
@@ -84,7 +84,7 @@ const AboutCard = ({ about }: { about: About }) => {
                       </p>
                     </div>
 
-                    <div className="w-full grid place-items-center md:w-fit md:inline mt-[16px]">
+                    <div className="w-full grid place-items-center md:w-fit md:inline ">
                       <div
                         onClick={() =>
                           downloadFile(
@@ -92,7 +92,7 @@ const AboutCard = ({ about }: { about: About }) => {
                             "Nunu Olamilekan  - Resume.pdf"
                           )
                         }
-                        className="bg-neutral-700 rounded-lg flex items-center py-2 px-3 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 ease"
+                        className="bg-neutral-700 rounded-lg flex items-center py-2 px-3 cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 ease w-fit mt-2"
                       >
                         <IoDownload className="bg-transparent text-[30px]" />
                         <p className="pl-2 bg-neutral-700 whitespace-nowrap rounded-lg">
