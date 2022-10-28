@@ -41,7 +41,7 @@ const Navbar = ({
   return (
     <div
       className={clsx(
-        "fixed top-0 w-full z-50 bg-transparent flex items-center justify-between md:justify-around transition-all duration-300 ease 2xl:w-[80%]",
+        "fixed top-0 w-full z-50 bg-transparent flex items-center justify-between md:justify-around transition-all duration-300 ease 2xl:w-[60%]",
         show && "shadow-md bg-dark"
       )}
     >
@@ -72,7 +72,7 @@ const Navbar = ({
         onSetActive={(to: string) => {
           if (to === "contact") setActive(5);
         }}
-        className="shrink-0 mx-2"
+        className="hidden md:block shrink-0 mx-2"
       >
         <div className="shadow-lg rounded-full py-1 px-3 transition-all duration-300 ease bg-blue-600 text-lg cursor-pointer hover:scale-105 hover:shadow-blue-900 text-white active:scale-95 shrink-0">
           Let&apos;s Talk

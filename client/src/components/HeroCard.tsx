@@ -6,9 +6,9 @@ const HeroCard = () => {
   const name = "<Olamilekan />";
 
   return (
-    <section id="home" className="w-full relative bg-radius">
-      <div className="flex items-center justify-center 2xl:justify-center lg:justify-around min-h-screen lg:h-screen 2xl:h-[calc(80vh)] w-full flex-col lg:flex-row lg:overflow-hidden relative bg-transparent">
-        <motion.div className="md:max-w-[60vw] 2xl:w-[30vw] lg:w-[30vw] flex flex-col text-center lg:text-left 2xl:text-center text-white bg-transparent">
+    <section id="home" className="w-full relative bg-radius 2xl:pt-16">
+      <div className="flex items-center justify-center lg:justify-around min-h-screen lg:h-screen 2xl:min-h-[45vh] 2xl:h-[45vh] w-full flex-col lg:flex-row lg:overflow-hidden relative bg-transparent">
+        <motion.div className="md:max-w-[60vw] lg:w-[30vw] flex flex-col text-center lg:text-left text-white bg-transparent">
           <motion.p
             animate={{ opacity: 1, transition: { staggerChildren: 0.5 } }}
             initial={{ opacity: 0 }}

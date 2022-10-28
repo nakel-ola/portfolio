@@ -30,7 +30,7 @@ const ProjectsCard = ({details,setDetails,projects}: {
         );
 
   return (
-    <div id="projects" className="min-h-screen snap-start pt-[50px] text-white border-b-4 border-neutral-700 w-full pb-8">
+    <div id="projects" className="min-h-screen 2xl:min-h-fit snap-start pt-[50px] text-white w-full pb-8">
       <div className="flex items-center justify-center w-full my-2">
         <p className="text-5xl font-extrabold text-center ">
           My Creative{" "}

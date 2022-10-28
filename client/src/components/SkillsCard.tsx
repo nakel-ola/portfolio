@@ -93,7 +93,7 @@ const SkillsCard = ({ skills }: { skills: Skill[] }) => {
   return (
     <div
       id="skills"
-      className="min-h-screen snap-start pt-[50px] text-white border-b-4 border-neutral-700 w-full"
+      className="min-h-screen 2xl:min-h-fit snap-start pt-[40px] text-white w-full"
     >
       <div className="flex items-center justify-center w-full my-2">
         <p className="text-5xl font-extrabold">
@@ -102,7 +102,7 @@ const SkillsCard = ({ skills }: { skills: Skill[] }) => {
       </div>
 
       <div className="flex w-full h-full justify-center mt-[60px]">
-        <div className="md:w-[61.5vw] w-full flex flex-wrap items-center justify-center">
+        <div className="md:w-[61.5vw] 2xl:w-full w-full flex flex-wrap items-center justify-center">
           {skills?.map((skill: Skill, index) => (
             <Card key={index} {...skill} />
           ))}

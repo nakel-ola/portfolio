@@ -37,7 +37,7 @@ const items = [
 const ServiesCard = ({ services }: { services: Service[] }) => {
 
   return (
-    <div id="services" className="min-h-screen snap-start pt-[50px] text-white border-b-4 border-neutral-700 w-full">
+    <div id="services" className="min-h-screen 2xl:min-h-fit snap-start pt-[50px] text-white w-full">
       <div className="flex items-center justify-center w-full my-2">
         <p className="text-5xl font-extrabold text-center md:w-[50vw] w-[100%]">
           I Know That{" "}

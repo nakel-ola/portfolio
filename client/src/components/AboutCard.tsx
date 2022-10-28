@@ -32,16 +32,16 @@ async function downloadFile(url: string, fileName: string) {
 
 const AboutCard = ({ about }: { about: About }) => {
   return (
-    <div id="about" className="w-full pt-3 pb-8">
+    <div id="about" className="w-full pt-3 ">
       {about ? (
         <>
-          <div className="min-h-screen pt-[40px] snap-start text-white">
+          <div className="min-h-screen 2xl:min-h-fit pt-[40px] snap-start text-white">
             <div className="flex items-center justify-center w-full my-2">
               <p className="text-5xl font-extrabold text-white">About <span className="text-blue-600 ">Me</span></p>
             </div>
 
             <div className="flex w-full h-full justify-center mt-[40px]  md:justify-evenly">
-              <div className="hidden md:inline">
+              <div className="hidden md:inline mr-2">
                 <div className="h-[350px] w-[300px] overflow-hidden rounded-lg ml-auto">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -52,7 +52,7 @@ const AboutCard = ({ about }: { about: About }) => {
                 </div>
               </div>
 
-              <div className="w-[85%] md:w-fit">
+              <div className="w-[85%] md:w-fit ml-2">
                 <div className="">
                   <p className="text-lg font-bold">Bio</p>
                   <p className="text-neutral-500 md:py-[8px] md:px-[8px] py-[8px] md:max-w-[40vw]">
