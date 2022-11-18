@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply p-0 m-0 bg-dark ;
+    @apply p-0 m-0 bg-dark text-white;
   }
   a {
     @apply text-inherit decoration-transparent;

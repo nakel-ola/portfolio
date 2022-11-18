@@ -11,141 +11,168 @@
   "skills": [
     {
       "name": "HTML5",
-      "image": "/html-logo.png",
-      "color": "bg-red-200",
+      "image": "/html-logo.svg",
+      "color": "#fecaca",
       "percentage": 98
     },
     {
       "name": "CSS3",
-      "image": "/css-logo.png",
-      "color": "bg-blue-200",
+      "image": "/css-logo.svg",
+      "color": "#bfdbfe",
       "percentage": 98
     },
     {
       "name": "Sass",
-      "image": "/sass-logo.png",
-      "color": "bg-pink-200",
+      "image": "/sass-logo.svg",
+      "color": "#fbcfe8",
       "percentage": 85
     },
     {
       "name": "Tailwind css",
       "image": "/tailwindcss-logo.svg",
-      "color": "bg-sky-200",
+      "color": "#bae6fd",
       "percentage": 95
     },
     {
       "name": "Javascript",
-      "image": "/javascript-logo.png",
-      "color": "bg-yellow-200",
+      "image": "/javascript-logo.svg",
+      "color": "#fef08a",
       "percentage": 98
     },
     {
       "name": "Typescript",
-      "image": "/typescript-logo.png",
-      "color": "bg-blue-200",
+      "image": "/typescript-logo.svg",
+      "color": "#bfdbfe",
       "percentage": 82
     },
     {
       "name": "NodeJs",
-      "image": "/nodejs-logo.png",
-      "color": "bg-lime-200",
+      "image": "/nodejs-logo.svg",
+      "color": "#d9f99d",
       "percentage": 98
     },
     {
       "name": "React.js",
-      "image": "/react-logo.png",
-      "color": "bg-cyan-200",
+      "image": "/react-logo.svg",
+      "color": "#a5f3fc",
       "percentage": 98
     },
     {
       "name": "Next.js",
       "image": "/nextjs-logo.svg",
-      "color": "bg-slate-200",
+      "color": "#e2e8f0",
       "percentage": 98
     },
     {
       "name": "React Native",
-      "image": "/reactnative-logo.png",
-      "color": "bg-blue-200",
+      "image": "/reactnative-logo.svg",
+      "color": "#bfdbfe",
       "percentage": 82
     },
     {
       "name": "Electron",
-      "image": "/electron-logo.png",
-      "color": "bg-gray-700",
+      "image": "/electron-logo.svg",
+      "color": "#374151",
       "percentage": 77
     },
-    {
-      "name": "MUI",
-      "image": "/mui-logo.svg",
-      "color": "bg-blue-200",
-      "percentage": 98
-    },
+    
     {
       "name": "Redux",
-      "image": "/redux-logo.png",
-      "color": "bg-purple-200",
+      "image": "/redux-logo.svg",
+      "color": "#e9d5ff",
       "percentage": 98
     },
     {
       "name": "Graphql",
-      "image": "/graphql-logo.png",
-      "color": "bg-pink-200",
+      "image": "/graphql-logo.svg",
+      "color": "#fbcfe8",
       "percentage": 88
     },
     {
       "name": "Git",
-      "image": "/git-logo.png",
-      "color": "bg-red-200",
+      "image": "/git-logo.svg",
+      "color": "#fecaca",
       "percentage": 85
     }
   ],
-  "service": [
+  "services": [
     {
       "title": "Frontend Developer",
-      "image": "/How_to_Become_a_Back_End_Developer.jpg",
-      "description": "I am a frontend developer with a passion for building beautiful and functioning web application"
+      "image": "/fachrizal-maulana-KSHNrAv2SRo-unsplash.jpg",
+      "description": "I like to code things from scratch, and enjoy bringing ideas to life"
     },
     {
-      "title": "Web Designs",
-      "image": "/full_front_back.jpg",
+      "title": "Web Design",
+      "image": "/art-3840x2160-jurassic-park-dinosaur-4k-17754.jpg",
       "description": "I am a web designer with a passion for building beautiful and functioning web application"
     },
     {
-      "title": "React Native",
-      "image": "/typical-process-for-a-successful-mobile-development.jpeg",
+      "title": "Mobile Development",
+      "image": "/wallpaperflare.com_wallpaper (4).jpg",
       "description": "I am a React Native with a passion for building beautiful and functioning mobile application"
     },
     {
       "title": "Backend Developer",
-      "image": "/frontendbackend.jpg",
+      "image": "/far_cry_3_2012_video_game-wallpaper-2560x1440.jpg",
       "description": "I am a backend developer with a passion for building beautiful and functioning web application"
     }
   ],
   "projects": [
     {
-        "name": "Rock, Paper, Scissors",
-        "category": ["Web App"],
-        "description": "This a game in which the each player simultaneously forms one of three shapes with outstretched hand. These shapes are 'rock', 'paper', 'scissors'. I add additional 2 shapes more which are 'spock','lizard'",
-        "tech": ["Next.js","Tailwind css","Typescript", "Git"],
-        "images": ["/rock-paper-scissors-desktop-preview.png","rock-paper-scissors-desktop-preview-2.png","/rock-paper-scissors-mobile-preview.png","/rock-paper-scissors-desktop-preview-3.png","/rock-paper-scissors-mobile-preview-2.png"],
-        "link": "https://rock-paper-scissors.vercel.app/"
+      "name": "Playon",
+      "category": ["Web App"],
+      "description": "Movies / Tv show streaming app",
+      "tech": ["Next.js", "Tailwind css", "Typescript", "Git"],
+      "images": [
+        "/playon/design (1).png",
+        "/playon/design (2).png",
+        "/playon/design (3).png",
+        "/playon/design (4).png",
+        "/playon/design (5).png"
+      ],
+      "link": "https://playon.vercel.app/"
     },
     {
-        "name": "Sneakers",
-        "category": ["Web App"],
-        "description": "This is an e-commerce product page for sneakers. It includes a cart,image slider, add product and more.",
-        "tech": ["React.js", "CSS3","Javascript","Git"],
-        "images": ["/sneakers-desktop-preview.png","/sneakers-desktop-preview-3.png","/sneakers-desktop-preview-2.png","/sneakers-mobile-preview.png","/sneakers-mobile-preview-2.png"],
-        "link": "https://ecommerce-product-page-eight-khaki.vercel.app/"
+      "name": "Rock, Paper, Scissors",
+      "category": ["Web App"],
+      "description": "This a game in which the each player simultaneously forms one of three shapes with outstretched hand. These shapes are 'rock', 'paper', 'scissors'. I add additional 2 shapes more which are 'spock','lizard'",
+      "tech": ["Next.js", "Tailwind css", "Typescript", "Git"],
+      "images": [
+        "/rock-paper-scissors/rock-paper-scissors-desktop-preview.png",
+        "/rock-paper-scissors/rock-paper-scissors-desktop-preview-2.png",
+        "/rock-paper-scissors/rock-paper-scissors-desktop-preview-3.png",
+        "/rock-paper-scissors/rock-paper-scissors-mobile-preview.png",
+        "/rock-paper-scissors/rock-paper-scissors-mobile-preview-2.png"
+      ],
+      "link": "https://rock-paper-scissors.vercel.app/"
     },
     {
-        "name": "Huddle",
-        "category": ["Web App"],
-        "description": "This is a responsive huddle landing page ",
-        "tech": ["HTML5", "CSS3","Javascript","Git"],
-        "images": ["/huddle-desktop-preview.png","/huddle-desktop-preview-2.png","/huddle-desktop-preview-3.png","/huddle-mobile-preview.png","/huddle-mobile-preview-2.png"],
-        "link": "https://huddle-sepia.vercel.app/"
+      "name": "Sneakers",
+      "category": ["Web App"],
+      "description": "This is an e-commerce product page for sneakers. It includes a cart,image slider, add product and more.",
+      "tech": ["React.js", "CSS3", "Javascript", "Git"],
+      "images": [
+        "/sneakers/sneakers-desktop-preview.png",
+        "/sneakers/sneakers-desktop-preview-3.png",
+        "/sneakers/sneakers-desktop-preview-2.png",
+        "/sneakers/sneakers-mobile-preview.png",
+        "/sneakers/sneakers-mobile-preview-2.png"
+      ],
+      "link": "https://ecommerce-product-page-eight-khaki.vercel.app/"
+    },
+    {
+      "name": "Huddle",
+      "category": ["Web App"],
+      "description": "This is a responsive huddle landing page ",
+      "tech": ["HTML5", "CSS3", "Javascript", "Git"],
+      "images": [
+        "/huddle/huddle-desktop-preview.png",
+        "/huddle/huddle-desktop-preview-2.png",
+        "/huddle/huddle-desktop-preview-3.png",
+        "/huddle/huddle-mobile-preview.png",
+        "/huddle/huddle-mobile-preview-2.png"
+      ],
+      "link": "https://huddle-sepia.vercel.app/"
     }
   ]
 }

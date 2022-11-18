@@ -1,65 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { IoChevronBack, IoChevronForward, IoClose } from "react-icons/io5";
-// import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
+import useImageLoader from "../hooks/useImageLoader";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import useOnClickOutside from "../hooks/useOnClickOutside";
-import { urlFor } from "../sanity";
-import { Project } from "./ProjectsCard";
-
-interface RefDivElement {
-  current: HTMLDivElement;
-}
-
-interface Props extends Project {
+import { Details } from "../pages";
+interface Props extends Details {
   handleHide(): void;
 }
 
-function ImageCard({
-  image,
-  index,
-  active,
-}: {
-  image: string;
-  index: number;
-  active: number;
-}) {
-  const ref = useRef() as RefDivElement;
-  useEffect(() => {
-    if (index === active) {
-      ref?.current?.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "center",
-      });
-    }
-  }, [index, active]);
+const PopUpCard = (props: Props) => {
+  const { category, description, handleHide, images, link, name, tech } = props;
 
-  return (
-    <div
-      ref={ref}
-      className="w-full md:w-fit max-h-[300px] md:max-h-[500px] md:h-[500px] overflow-hidden rounded-lg shrink-0 mx-2 mb-auto"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={urlFor(image).toString()}
-        alt=""
-        className="w-full h-full object-contain md:object-cover rounded-lg"
-      />
-    </div>
-  );
-}
-
-const PopUpCard = ({
-  handleHide,
-  images,
-  name,
-  description,
-  link,
-  tech,
-  category,
-}: Props) => {
-  const ref = useRef() as RefDivElement;
+  const ref = useRef<HTMLDivElement>(null);
 
   const [active, setActive] = useState<number>(0);
 
@@ -71,32 +27,46 @@ const PopUpCard = ({
   };
 
   useOnClickOutside(ref, () => handleHide());
-  // useLockBodyScroll()
+  useLockBodyScroll();
 
   return (
-    <div className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white">
-      <div
+    <motion.section
+      layoutId="project-popup"
+      className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white"
+    >
+      <motion.div
+        initial={{ scale: 0, }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0 }}
+        transition={{ delay: 0.1}}
         ref={ref}
-        className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] bg-neutral-800 overflow-hidden scrollbar-hide"
+        className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] 2xl:h-fit bg-neutral-800 overflow-hidden scrollbar-hide"
       >
-        <div className="relative grid place-items-center bg-transparent scrollbar-hide ">
-          <div className="w-full h-full relative mt-[6px] flex items-center overflow-scroll rounded-lg scrollbar-hide">
+        <motion.div
+          className="relative grid place-items-center bg-transparent scrollbar-hide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="w-full h-full relative mt-4 flex items-center overflow-x-scroll scrollbar-hide">
             {images.map((image: string, index: number) => (
               <ImageCard
                 key={index}
                 image={image}
                 index={index}
                 active={active}
+                setActive={setActive}
               />
             ))}
           </div>
 
-          <div
+          <button
             onClick={handleHide}
             className="absolute top-0 right-0 bg-neutral-900 w-fit m-[20px] rounded-full z-20 transition-all duration-300 hover:scale-105 active:scale-95"
           >
             <IoClose className="text-white text-[25px] bg-transparent" />
-          </div>
+          </button>
 
           {active !== 0 && (
             <div
@@ -112,28 +82,38 @@ const PopUpCard = ({
               className="absolute top-[50%] right-2 rounded-full translate-y-[-50%] p-[5px] hover:scale-110 hover:bg-slate-50/5 transition-transform duration-300 ease bg-transparent z-20"
               onClick={handleForward}
             >
-              <IoChevronForward className="md:text-5xl text-3xl text-white drop-shadow-xl bg-transparent" />
+              <IoChevronForward className="md:text-5xl text-3xl text-white drop-shadow-2xl bg-transparent" />
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center items-center mt-4">
+        <motion.div
+          className="flex justify-center items-center mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          exit={{ opacity: 0 }}
+        >
           {images.length > 1 &&
-            images.map((image: string, index: number) => (
+            images.map((_, index: number) => (
               <div
                 key={index}
                 className={clsx(
-                  "rounded-full bg-transparent mx-1 h-[10px]",
-                  index === active
-                    ? "w-[30px] bg-slate-200"
-                    : "bg-neutral-400 w-[10px] "
+                  "rounded-full mx-1 h-2 w-2",
+                  index === active ? " bg-slate-200" : "bg-neutral-700 "
                 )}
                 onClick={() => setActive(index)}
-              ></div>
+              />
             ))}
-        </div>
+        </motion.div>
 
-        <div className="w-fit bg-transparent mt-2 mb-auto mx-3">
+        <motion.div
+          className="w-fit bg-transparent mt-2 mb-auto mx-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          exit={{ opacity: 0 }}
+        >
           <p className="text-4xl font-extrabold py-2 px-1 bg-transparent">
             {name}
           </p>
@@ -151,20 +131,17 @@ const PopUpCard = ({
               Live Preview
             </a>
           </div>
-          {/* <div className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95">
-            <p className="text-blue-600 bg-transparent">Live Preview</p>
-          </div> */}
 
           <div className="bg-transparent my-2 px-2 py-2">
             <p className="bg-transparent text-xl font-bold">Categories</p>
-            <div className="flex flex-wrap items-center bg-transparent">
+            <div className="flex flex-wrap items-center bg-transparent mt-3">
               {category.map((text: string, index: number) => (
-                <div
+                <button
                   key={index}
-                  className="shadow-md py-2 px-3 m-2 rounded-lg hover:scale-105 active:scale-95 transition-all duration-300 ease cursor-pointer shrink-0 bg-neutral-800"
+                  className="rounded-lg py-1 px-2 transition-all duration-300 ease bg-white text-base cursor-pointer hover:scale-105 text-black font-medium active:scale-95 shrink-0"
                 >
-                  <p className="bg-transparent whitespace-nowrap">{text}</p>
-                </div>
+                  {text}
+                </button>
               ))}
             </div>
           </div>
@@ -175,19 +152,13 @@ const PopUpCard = ({
               {tech.map((skill, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center flex-col m-2 w-24 h-28 hover:scale-105 active:scale-95 transition-all duration-300 ease cursor-pointer bg-transparent"
+                  className="flex items-center justify-center flex-col m-2 w-24 h-28 cursor-pointer"
                 >
-                  <div
-                    className={clsx(
-                      "h-16 w-16 rounded-full flex items-center justify-center",
-                      skill.color
-                    )}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <div className="h-[60px] w-[60px] rounded-full flex items-center justify-center active:scale-95 transition-all duration-300">
                     <img
-                      src={urlFor(skill.image).toString()}
+                      src={skill.image}
                       alt=""
-                      className="h-10 w-10 object-contain bg-transparent"
+                      className="h-14 w-14 object-contain bg-transparent"
                     />
                   </div>
                   <p className="text-base bg-transparent">{skill.name}</p>
@@ -195,10 +166,58 @@ const PopUpCard = ({
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
+};
+
+interface ImageProps {
+  image: string;
+  index: number;
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const ImageCard = (props: ImageProps) => {
+  const { image, index, active, setActive } = props;
+  const ref = useRef<HTMLDivElement>(null);
+
+  const entry = useIntersectionObserver(ref, { threshold: 0.8 });
+  const laoded = useImageLoader({
+    src: image,
+  });
+
+  const isVisible = !!entry?.isIntersecting;
+
+  useEffect(() => {
+    if (index === active) {
+      ref?.current?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "center",
+      });
+    }
+  }, [index, active]);
+
+  useEffect(() => {
+    if (isVisible) {
+      setActive(index);
+    }
+  }, [isVisible, setActive, index]);
+
+  return laoded ? (
+    <div
+      ref={ref}
+      className="w-full md:w-fit max-h-[300px] md:max-h-[500px] md:h-[500px] overflow-hidden rounded-lg shrink-0 mx-2 mb-auto"
+    >
+      <img
+        src={image}
+        alt=""
+        className="w-full h-full object-contain md:object-cover rounded-lg"
+      />
+    </div>
+  ) : null;
 };
 
 export default PopUpCard;
