@@ -9,7 +9,7 @@ import {
   AboutResponse,
   ProjectResponse,
   ServiceResponse,
-  SkillResponse
+  SkillResponse,
 } from "../../typing";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
@@ -19,6 +19,7 @@ import PopUpCard from "../components/PopUpCard";
 import ProjectSection from "../components/ProjectSection";
 import ServicesSection from "../components/ServicesSection";
 import SkillsSection from "../components/SkillsSection";
+import { useStore } from "../context";
 import { fetchData } from "../utils/fetchData";
 
 export interface Details {
@@ -44,6 +45,7 @@ export default function Home({
   services,
   projects,
 }: HomePropType) {
+
   const [active, setActive] = useState(0);
   const [details, setDetails] = useState<Details>({
     active: false,
@@ -71,10 +73,10 @@ export default function Home({
 
         <main className="">
           <HeroSection />
-          <ServicesSection items={services} />
-          <AboutSection data={about} />
-          <ProjectSection items={projects} setDetails={setDetails} />
-          <SkillsSection items={skills} />
+          <ServicesSection items={services!} />
+          <AboutSection data={about!} />
+          <ProjectSection items={projects!} setDetails={setDetails} />
+          <SkillsSection items={skills!} />
           <ContactSection />
         </main>
 
@@ -86,7 +88,9 @@ export default function Home({
           smooth={true}
           duration={500}
           offset={-20}
-          onClick={() => setActive(items.length - 1 === active ? 0 : active + 1)}
+          onClick={() =>
+            setActive(items.length - 1 === active ? 0 : active + 1)
+          }
         >
           <button className="fixed h-[40px] w-[40px] rounded-full bg-blue-600 bottom-10 right-10 flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 ease text-white z-50">
             {items.length - 1 === active ? (

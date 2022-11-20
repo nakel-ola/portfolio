@@ -3,11 +3,11 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { IoChevronBack, IoChevronForward, IoClose } from "react-icons/io5";
-import useImageLoader from "../hooks/useImageLoader";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import useOnClickOutside from "../hooks/useOnClickOutside";
 import { Details } from "../pages";
+import { urlFor } from "../sanity";
 interface Props extends Details {
   handleHide(): void;
 }
@@ -35,10 +35,10 @@ const PopUpCard = (props: Props) => {
       className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white"
     >
       <motion.div
-        initial={{ scale: 0, }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0 }}
-        transition={{ delay: 0.1}}
+        // initial={{ scale: 0 }}
+        // animate={{ scale: 1 }}
+        // exit={{ scale: 0 }}
+        // transition={{ delay: 0.1 }}
         ref={ref}
         className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] 2xl:h-fit bg-neutral-800 overflow-hidden scrollbar-hide"
       >
@@ -184,9 +184,6 @@ const ImageCard = (props: ImageProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const entry = useIntersectionObserver(ref, { threshold: 0.8 });
-  const laoded = useImageLoader({
-    src: image,
-  });
 
   const isVisible = !!entry?.isIntersecting;
 
@@ -206,18 +203,18 @@ const ImageCard = (props: ImageProps) => {
     }
   }, [isVisible, setActive, index]);
 
-  return laoded ? (
+  return (
     <div
       ref={ref}
       className="w-full md:w-fit max-h-[300px] md:max-h-[500px] md:h-[500px] overflow-hidden rounded-lg shrink-0 mx-2 mb-auto"
     >
       <img
-        src={image}
+        src={urlFor(image).toString()}
         alt=""
         className="w-full h-full object-contain md:object-cover rounded-lg"
       />
     </div>
-  ) : null;
+  );
 };
 
 export default PopUpCard;

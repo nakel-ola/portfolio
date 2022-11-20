@@ -1,11 +1,12 @@
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { GetServerSideProps } from "next";
 import React, { useState } from "react";
 import { Details, HomePropType } from ".";
 import Header from "../components/Header";
 import PopUpCard from "../components/PopUpCard";
 import ProjectSection from "../components/ProjectSection";
+import { useStore } from "../context";
 import { fetchData } from "../utils/fetchData";
-
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
@@ -18,6 +19,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     throw new Error(err.message);
   }
 };
+
+
 
 const Projects = ({ projects }: HomePropType) => {
   const [details, setDetails] = useState<Details>({
@@ -34,25 +37,34 @@ const Projects = ({ projects }: HomePropType) => {
       <Header />
 
       <main className="">
-        <ProjectSection items={projects} setDetails={setDetails} showAll />
+        <ProjectSection
+          items={projects!}
+          setDetails={setDetails}
+          showAll
+        />
       </main>
 
-      {/* {details.active && (
-        <PopUpCard
-          {...details}
-          handleHide={() =>
-            setDetails({
-              active: false,
-              category: [],
-              description: "",
-              images: [],
-              tech: [],
-              name: "",
-              link: "",
-            })
-          }
-        />
-      )} */}
+      <AnimateSharedLayout>
+        <AnimatePresence>
+          {details.active && (
+            <PopUpCard
+              key="Pop"
+              {...details}
+              handleHide={() =>
+                setDetails({
+                  active: false,
+                  category: [],
+                  description: "",
+                  images: [],
+                  tech: [],
+                  name: "",
+                  link: "",
+                })
+              }
+            />
+          )}
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </div>
   );
 };

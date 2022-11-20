@@ -10,7 +10,7 @@ interface Props {
   items: SkillResponse[];
 }
 const SkillsSection = (props: Props) => {
-  const { items } = props;
+  const { items = [] } = props;
   return (
     <section id="skills" className="mt-16 w-[95vw] md:w-[80vw] 2xl:w-[1000px]">
       <div className="flex items-center justify-center w-full my-2">

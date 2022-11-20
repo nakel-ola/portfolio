@@ -23,7 +23,7 @@ const query = groq`
 export type ResponseData = {
   about: AboutResponse;
   skills: SkillResponse[];
-  service: ServiceResponse[];
+  services: ServiceResponse[];
   projects: ProjectResponse[];
 };
 

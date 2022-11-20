@@ -15,7 +15,7 @@ interface Props {
 }
 
 const ProjectSection = (props: Props) => {
-  const { items, setDetails, showAll = false } = props;
+  const { items = [], setDetails, showAll = false } = props;
 
   const router = useRouter();
   return (

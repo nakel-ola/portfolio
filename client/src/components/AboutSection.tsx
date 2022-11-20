@@ -59,12 +59,12 @@ const AboutSection = (props: Props) => {
         </motion.div>
 
         <motion.div
-          className="pl-10"
+          className="w-full md:w-fit ml-0 md:ml-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <div className="">
+          <div className="w-[95%] ml-4 md:ml-0">
             <p className="text-lg font-bold">Bio</p>
             <p className="text-neutral-500 w-[90%] py-[8px] md:max-w-[40vw]">
               {data.bio}
@@ -72,12 +72,12 @@ const AboutSection = (props: Props) => {
           </div>
 
           {items.map((item, index) => (
-            <div key={index} className="w-[350px]">
-              <div className="flex items-center justify-between w-[85%] py-2">
+            <div key={index} className="w-full md:w-[80%] flex flex-col items-center md:items-start justify-center">
+              <div className="flex items-center justify-between w-[90%] py-2">
                 <p className="">{item.title}</p>
                 <p className="">{item.percentage}%</p>
               </div>
-              <div className="relative w-[85%] mt-auto mb-2">
+              <div className="relative w-[90%] mt-auto mb-2">
                 <div className="w-full bg-neutral-400 h-1 rounded-lg relative"></div>
                 <div
                   className={clsx(

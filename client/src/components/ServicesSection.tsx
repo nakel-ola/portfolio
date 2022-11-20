@@ -9,7 +9,7 @@ interface Props {
   items: ServiceResponse[];
 }
 const ServicesSection = (props: Props) => {
-  const { items } = props;
+  const { items = [] } = props;
   return (
     <motion.div id="services" className="w-[95vw] md:w-[80vw] 2xl:w-[1000px] mt-16">
       <div className="flex items-center justify-center w-full my-2">
