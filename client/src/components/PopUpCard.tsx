@@ -156,7 +156,7 @@ const PopUpCard = (props: Props) => {
                 >
                   <div className="h-[60px] w-[60px] rounded-full flex items-center justify-center active:scale-95 transition-all duration-300">
                     <img
-                      src={skill.image}
+                      src={urlFor(skill.image).toString()}
                       alt=""
                       className="h-14 w-14 object-contain bg-transparent"
                     />
