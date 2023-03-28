@@ -33,6 +33,7 @@ export default async function handler(
 ) {
   try {
     const data: ResponseData = await sanityClient.fetch(query);
+    console.log(data)
     res.status(200).json(data);
   } catch (error: any) {
     console.log(error);

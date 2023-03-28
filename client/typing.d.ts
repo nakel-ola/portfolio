@@ -37,4 +37,5 @@ export interface ProjectResponse extends sanityDefaultProps {
   tech: SkillResponse[];
   images: string[];
   link: string;
+  github: string;
 }

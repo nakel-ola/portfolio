@@ -45,5 +45,10 @@ export default {
             title: "Link",
             type: "url"
         },
+        {
+            name: "github",
+            title: "Github link",
+            type: "url"
+        },
     ]
 }

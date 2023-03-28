@@ -31,6 +31,7 @@ const Projects = ({ projects }: HomePropType) => {
     tech: [],
     name: "",
     link: "",
+    github: "",
   });
   return (
     <div className="flex-1 min-h-screen flex flex-col items-center overflow-x-hidden">
@@ -59,6 +60,7 @@ const Projects = ({ projects }: HomePropType) => {
                   tech: [],
                   name: "",
                   link: "",
+                  github: ""
                 })
               }
             />

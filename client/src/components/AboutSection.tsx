@@ -59,7 +59,7 @@ const AboutSection = (props: Props) => {
         </motion.div>
 
         <motion.div
-          className="w-full md:w-fit ml-0 md:ml-3"
+          className="w-full md:w-fit ml-0 md:ml-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}

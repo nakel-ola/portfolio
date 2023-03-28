@@ -30,6 +30,7 @@ export interface Details {
   tech: SkillResponse[];
   images: string[];
   link: string;
+  github: string;
 }
 
 export type HomePropType = {
@@ -55,6 +56,7 @@ export default function Home({
     tech: [],
     name: "",
     link: "",
+    github: ""
   });
   const items = ["home", "services", "about", "projects", "skills", "contact"];
 
@@ -140,6 +142,7 @@ export default function Home({
                     tech: [],
                     name: "",
                     link: "",
+                    github: ""
                   })
                 }
               />

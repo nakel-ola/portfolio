@@ -13,7 +13,7 @@ interface Props extends Details {
 }
 
 const PopUpCard = (props: Props) => {
-  const { category, description, handleHide, images, link, name, tech } = props;
+  const { category, description, handleHide, images, link, name, tech,github } = props;
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -46,7 +46,7 @@ const PopUpCard = (props: Props) => {
           className="relative grid place-items-center bg-transparent scrollbar-hide"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.2 }}
           exit={{ opacity: 0 }}
         >
           <div className="w-full h-full relative mt-4 flex items-center overflow-x-scroll scrollbar-hide">
@@ -129,6 +129,14 @@ const PopUpCard = (props: Props) => {
               className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600"
             >
               Live Preview
+            </a>
+            <a
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600 ml-2"
+            >
+              Git link
             </a>
           </div>
 
