@@ -13,20 +13,28 @@ interface Props extends Details {
 }
 
 const PopUpCard = (props: Props) => {
-  const { category, description, handleHide, images, link, name, tech,github } = props;
+  const {
+    category,
+    description,
+    handleHide,
+    images,
+    link,
+    name,
+    tech,
+    github,
+  } = props;
 
   const ref = useRef<HTMLDivElement>(null);
 
   const [active, setActive] = useState<number>(0);
 
-  const handleBack = () => {
+  const handleBack = () =>
     setActive(active === 0 ? images.length - 1 : active - 1);
-  };
-  const handleForward = () => {
-    setActive(active === images.length - 1 ? 0 : active + 1);
-  };
 
-  useOnClickOutside(ref, () => handleHide());
+  const handleForward = () =>
+    setActive(active === images.length - 1 ? 0 : active + 1);
+
+  useOnClickOutside(ref, handleHide);
   useLockBodyScroll();
 
   return (
@@ -35,10 +43,6 @@ const PopUpCard = (props: Props) => {
       className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white"
     >
       <motion.div
-        // initial={{ scale: 0 }}
-        // animate={{ scale: 1 }}
-        // exit={{ scale: 0 }}
-        // transition={{ delay: 0.1 }}
         ref={ref}
         className="w-[90%] md:w-[625px] rounded-xl overflow-y-scroll h-[95%] 2xl:h-fit bg-neutral-800 overflow-hidden scrollbar-hide"
       >
@@ -122,22 +126,27 @@ const PopUpCard = (props: Props) => {
           </p>
 
           <div className="px-2 py-2 bg-transparent">
-            <a
-              href={link}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600"
-            >
-              Live Preview
-            </a>
-            <a
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600 ml-2"
-            >
-              Git link
-            </a>
+            {link ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600"
+              >
+                Live Preview
+              </a>
+            ) : null}
+
+            {github ? (
+              <a
+                href={github}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-blue-600/10 w-fit px-4 py-2 rounded-lg my-2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 text-blue-600 ml-2"
+              >
+                Git link
+              </a>
+            ) : null}
           </div>
 
           <div className="bg-transparent my-2 px-2 py-2">

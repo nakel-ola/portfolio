@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
@@ -19,7 +19,6 @@ import PopUpCard from "../components/PopUpCard";
 import ProjectSection from "../components/ProjectSection";
 import ServicesSection from "../components/ServicesSection";
 import SkillsSection from "../components/SkillsSection";
-import { useStore } from "../context";
 import { fetchData } from "../utils/fetchData";
 
 export interface Details {
@@ -46,7 +45,6 @@ export default function Home({
   services,
   projects,
 }: HomePropType) {
-
   const [active, setActive] = useState(0);
   const [details, setDetails] = useState<Details>({
     active: false,
@@ -56,7 +54,7 @@ export default function Home({
     tech: [],
     name: "",
     link: "",
-    github: ""
+    github: "",
   });
   const items = ["home", "services", "about", "projects", "skills", "contact"];
 
@@ -127,28 +125,26 @@ export default function Home({
           ))}
         </div>
 
-        <AnimateSharedLayout>
-          <AnimatePresence>
-            {details.active && (
-              <PopUpCard
-                key="Pop"
-                {...details}
-                handleHide={() =>
-                  setDetails({
-                    active: false,
-                    category: [],
-                    description: "",
-                    images: [],
-                    tech: [],
-                    name: "",
-                    link: "",
-                    github: ""
-                  })
-                }
-              />
-            )}
-          </AnimatePresence>
-        </AnimateSharedLayout>
+        <AnimatePresence>
+          {details.active && (
+            <PopUpCard
+              key="Pop"
+              {...details}
+              handleHide={() =>
+                setDetails({
+                  active: false,
+                  category: [],
+                  description: "",
+                  images: [],
+                  tech: [],
+                  name: "",
+                  link: "",
+                  github: "",
+                })
+              }
+            />
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
