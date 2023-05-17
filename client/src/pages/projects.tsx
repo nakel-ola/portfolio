@@ -1,11 +1,13 @@
 import { AnimatePresence } from "framer-motion";
 import { GetServerSideProps } from "next";
 import React, { useState } from "react";
-import { Details, HomePropType } from ".";
+import { HomePropType } from ".";
+import { ProjectResponse } from "../../typing";
 import Header from "../components/Header";
 import PopUpCard from "../components/PopUpCard";
 import ProjectSection from "../components/ProjectSection";
 import { fetchData } from "../utils/fetchData";
+import ContactSection from "../components/ContactSection";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
@@ -18,41 +20,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Projects = ({ projects }: HomePropType) => {
-  const [details, setDetails] = useState<Details>({
-    active: false,
-    category: [],
-    description: "",
-    images: [],
-    tech: [],
-    name: "",
-    link: "",
-    github: "",
-  });
+  const [details, setDetails] = useState<ProjectResponse | null>(null);
   return (
     <div className="flex-1 min-h-screen flex flex-col items-center overflow-x-hidden">
       <Header />
 
       <main className="">
         <ProjectSection items={projects!} setDetails={setDetails} showAll />
+        <ContactSection />
       </main>
 
       <AnimatePresence>
-        {details.active && (
+        {details && (
           <PopUpCard
             key="Pop"
             {...details}
-            handleHide={() =>
-              setDetails({
-                active: false,
-                category: [],
-                description: "",
-                images: [],
-                tech: [],
-                name: "",
-                link: "",
-                github: "",
-              })
-            }
+            handleHide={() => setDetails(null)}
           />
         )}
       </AnimatePresence>

@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+// import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { Link } from "react-scroll";
 import {
   AboutResponse,
@@ -21,17 +23,6 @@ import ServicesSection from "../components/ServicesSection";
 import SkillsSection from "../components/SkillsSection";
 import { fetchData } from "../utils/fetchData";
 
-export interface Details {
-  active: boolean;
-  name: string;
-  category: string[];
-  description: string;
-  tech: SkillResponse[];
-  images: string[];
-  link: string;
-  github: string;
-}
-
 export type HomePropType = {
   about: AboutResponse;
   skills: SkillResponse[];
@@ -46,16 +37,7 @@ export default function Home({
   projects,
 }: HomePropType) {
   const [active, setActive] = useState(0);
-  const [details, setDetails] = useState<Details>({
-    active: false,
-    category: [],
-    description: "",
-    images: [],
-    tech: [],
-    name: "",
-    link: "",
-    github: "",
-  });
+  const [details, setDetails] = useState<ProjectResponse | null>(null);
   const items = ["home", "services", "about", "projects", "skills", "contact"];
 
   return (
@@ -94,9 +76,15 @@ export default function Home({
         >
           <button className="fixed h-[40px] w-[40px] rounded-full bg-blue-600 bottom-10 right-10 flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 ease text-white z-50">
             {items.length - 1 === active ? (
-              <IoChevronUp className="bg-transparent text-[30px]" />
+              <img
+                src="/icons/chevron-up-outline.svg"
+                className="bg-transparent text-[30px]"
+              />
             ) : (
-              <IoChevronDown className="bg-transparent text-[30px]" />
+              <img
+                src="/icons/chevron-down-outline.svg"
+                className="bg-transparent text-[30px]"
+              />
             )}
           </button>
         </Link>
@@ -126,22 +114,11 @@ export default function Home({
         </div>
 
         <AnimatePresence>
-          {details.active && (
+          {details && (
             <PopUpCard
               key="Pop"
               {...details}
-              handleHide={() =>
-                setDetails({
-                  active: false,
-                  category: [],
-                  description: "",
-                  images: [],
-                  tech: [],
-                  name: "",
-                  link: "",
-                  github: "",
-                })
-              }
+              handleHide={() => setDetails(null)}
             />
           )}
         </AnimatePresence>
@@ -156,3 +133,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: data,
   };
 };
+
+{
+  /**
+   * 
+   * depandences
+   * 
+   * 
+   "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.5",
+    "react-transition-group": "^4.4.5"
+*/
+}

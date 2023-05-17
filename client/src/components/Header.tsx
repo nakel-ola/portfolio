@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { IconType } from "react-icons";
@@ -7,7 +8,7 @@ import {
   IoLogoInstagram,
   IoMailOutline,
 } from "react-icons/io5";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 interface Item {
   link: string;
@@ -40,22 +41,23 @@ const Header = () => {
       <div className="flex items-center">
         {router.pathname === "/projects" && (
           <button
-            className="h-[35px] w-[35px] mx-2 flex items-center justify-center"
+            className="h-[35px] w-[35px] mx-2 flex items-center justify-center "
             onClick={() => router.push("/")}
           >
-            <IoArrowBack className="text-[25px] text-white hover:text-blue-600 hover:scale-105 active:scale-95" />
+            <IoArrowBack className="text-[30px] text-white hover:text-blue-600 hover:scale-105 active:scale-95" />
           </button>
         )}
+
         {items.map(({ Icon, link }: Item, index: number) => (
-          <a
+          <Link
             key={index}
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="h-[35px] w-[35px] mx-2 flex items-center justify-center"
+            className="h-[35px] w-[35px] mx-2 flex items-center justify-center "
           >
-            <Icon className="text-[25px] text-white hover:text-blue-600 hover:scale-105 active:scale-95" />
-          </a>
+            <Icon className="text-[30px] text-white hover:text-blue-600 hover:scale-105 active:scale-95" />
+          </Link>
         ))}
       </div>
 
@@ -65,11 +67,17 @@ const Header = () => {
         </p>
       </div>
 
-      <Link to="contact" spy={true} smooth={true} duration={500} offset={-20}>
+      <ScrollLink
+        to="contact"
+        spy={true}
+        smooth={true}
+        duration={500}
+        offset={-20}
+      >
         <div className="rounded-lg py-1 px-2 transition-all duration-300 ease bg-white text-base cursor-pointer hover:scale-105 text-black font-medium active:scale-95 shrink-0">
           Let&apos;s Talk
         </div>
-      </Link>
+      </ScrollLink>
     </header>
   );
 };

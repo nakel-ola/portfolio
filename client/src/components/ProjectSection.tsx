@@ -5,13 +5,12 @@ import { useRouter } from "next/router";
 import React from "react";
 import { IoArrowForward } from "react-icons/io5";
 import { ProjectResponse } from "../../typing";
-import { Details } from "../pages";
 import { urlFor } from "../sanity";
 
 interface Props {
   showAll?: boolean;
   items: ProjectResponse[];
-  setDetails: React.Dispatch<React.SetStateAction<Details>>;
+  setDetails(value: ProjectResponse): void;
 }
 
 const ProjectSection = (props: Props) => {
@@ -40,7 +39,7 @@ const ProjectSection = (props: Props) => {
                 key={index}
                 {...item}
                 index={index}
-                onClick={() => setDetails({ ...item, active: true })}
+                onClick={() => setDetails(item)}
               />
             )
           )}
@@ -66,7 +65,7 @@ interface CardProps extends ProjectResponse {
 }
 
 export const Card = (props: CardProps) => {
-  const { category, images, name, tech, onClick, index } = props;
+  const { category, images, name, tech, onClick, index,_id } = props;
   let techString = tech.map((t) => t.name);
   return (
     <motion.div
@@ -75,24 +74,24 @@ export const Card = (props: CardProps) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.2 * index }}
-      id="project-popup"
+      layoutId={_id}
     >
-      <div className="md:h-52 h-[200px] w-[95%] shrink-0 relative">
-        <img
+      <motion.div className="md:h-52 h-[200px] w-[95%] shrink-0 relative">
+        <motion.img
           src={urlFor(images[0]).toString()}
           alt=""
           className="h-full w-full object-cover relative rounded-lg"
         />
-        <div className="absolute -bottom-5 right-5 bg-dark shadow-md py-1 px-3 rounded-lg">
-          <p className="">{category[0]}</p>
-        </div>
-      </div>
+        <motion.div className="absolute -bottom-5 right-5 bg-dark shadow-md py-1 px-3 rounded-lg">
+          <motion.p className="">{category[0]}</motion.p>
+        </motion.div>
+      </motion.div>
 
-      <div className="p-2 mt-2 mb-auto">
-        <p className="font-medium text-xl">{name}</p>
-        <p className="text-neutral-400">{techString.join(", ")}</p>
-        <button className="text-blue-600 hover:underline">Read more</button>
-      </div>
+      <motion.div className="p-2 mt-2 mb-auto">
+        <motion.p className="font-medium text-xl">{name}</motion.p>
+        <motion.p className="text-neutral-400">{techString.join(", ")}</motion.p>
+        <motion.button className="text-blue-600 hover:underline">Read more</motion.button>
+      </motion.div>
     </motion.div>
   );
 };

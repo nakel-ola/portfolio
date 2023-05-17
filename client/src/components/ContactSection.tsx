@@ -1,39 +1,54 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import emailjs from "@emailjs/browser";
+import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { IoMail, IoPhonePortrait } from "react-icons/io5";
 import ReactLoading from "react-loading";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [loading, setLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const disabled = (): boolean => {
+    if (!formRef.current) return false;
+    const formData = new FormData(formRef.current);
+
+    const values: boolean[] = [];
+    formData.forEach((value) => {
+      if (!value) return values.push(false);
+      else values.push(true);
+    });
+
+    return values.every((value) => value === true) ? false : true;
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
+    const v = disabled();
+
+    if (v) return;
+
     setLoading(true);
 
-    await fetch("/api/addContact", {
-      body: JSON.stringify(form),
-      method: "POST",
-    });
-
-    setLoading(false);
-    setIsSubmitted(true);
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
+    emailjs
+      .sendForm(
+        process.env.EMAILJS_SERVICE_ID!,
+        process.env.EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.EMAILJS_PUBLIC_KEY!
+      )
+      .then(
+        (result) => {
+          setLoading(false);
+          formRef.current?.reset();
+          setIsSubmitted(true);
+        },
+        (error) => {
+          setLoading(false);
+        }
+      );
   };
   return (
     <section id="contact" className="my-14 w-[95vw] md:w-[80vw] 2xl:w-[1000px]">
@@ -81,6 +96,7 @@ const ContactSection = () => {
       {!loading && !isSubmitted && (
         <div className="grid place-items-center">
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             className="md:w-[50%] w-[90%] grid place-items-center mt-[40px]"
           >
@@ -88,36 +104,40 @@ const ContactSection = () => {
               <input
                 type="text"
                 name="name"
-                value={form.name}
-                onChange={handleChange}
+                // value={form.name}
+                // onChange={handleChange}
                 className="text-base py-2 px-3 text-white w-full border-0 outline-0 bg-transparent"
-                placeholder="You Name"
+                placeholder="Your Name"
+                required
               />
             </div>
             <div className="w-full bg-neutral-800 rounded-lg my-2 overflow-hidden">
               <input
                 type="email"
                 name="email"
-                value={form.email}
-                onChange={handleChange}
+                // value={form.email}
+                // onChange={handleChange}
                 className="text-base py-2 px-3 text-white w-full border-0 outline-0 bg-transparent"
-                placeholder="You Email"
+                placeholder="Your Email"
+                required
               />
             </div>
             <div className="w-full bg-neutral-800 rounded-lg my-2 overflow-hidden">
               <textarea
                 rows={5}
                 name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Your Message"
+                // value={form.message}
+                // onChange={handleChange}
+                placeholder="Enter Message"
                 className="text-base py-2 px-3 text-white w-full border-0 outline-0 bg-transparent resize-none"
+                required
               ></textarea>
             </div>
 
             <button
-              disabled={!form.email || !form.name || !form.message}
-              className="shadow-lg my-2 rounded-full py-1 px-3 transition-all duration-300 ease disabled:opacity-40 disabled:scale-100 disabled:shadow-none bg-blue-600 text-lg hover:scale-105 hover:shadow-blue-900 active:scale-95"
+              // disabled={disabled()}
+              // disabled={!form.email || !form.name || !form.message}
+              className="shadow-lg my-2 rounded-lg py-1 px-3 transition-all duration-300 ease disabled:opacity-40 disabled:scale-100 disabled:shadow-none bg-blue-600 text-lg hover:scale-105 hover:shadow-blue-900 active:scale-95"
             >
               Send Message
             </button>

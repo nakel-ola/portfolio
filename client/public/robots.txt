@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://olamilekan-one.vercel.app
+
+# Sitemaps
+Sitemap: https://olamilekan-one.vercel.app/sitemap.xml

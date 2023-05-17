@@ -3,12 +3,12 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { IoChevronBack, IoChevronForward, IoClose } from "react-icons/io5";
+import { ProjectResponse } from "../../typing";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import useOnClickOutside from "../hooks/useOnClickOutside";
-import { Details } from "../pages";
 import { urlFor } from "../sanity";
-interface Props extends Details {
+interface Props extends ProjectResponse {
   handleHide(): void;
 }
 
@@ -22,6 +22,7 @@ const PopUpCard = (props: Props) => {
     name,
     tech,
     github,
+    _id,
   } = props;
 
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +40,7 @@ const PopUpCard = (props: Props) => {
 
   return (
     <motion.section
-      layoutId="project-popup"
+      layoutId={_id}
       className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white"
     >
       <motion.div
@@ -53,7 +54,7 @@ const PopUpCard = (props: Props) => {
           transition={{ delay: 0.2 }}
           exit={{ opacity: 0 }}
         >
-          <div className="w-full h-full relative mt-4 flex items-center overflow-x-scroll scrollbar-hide">
+          <motion.div className="w-full h-full relative mt-4 flex items-center overflow-x-scroll scrollbar-hide">
             {images.map((image: string, index: number) => (
               <ImageCard
                 key={index}
@@ -63,7 +64,7 @@ const PopUpCard = (props: Props) => {
                 setActive={setActive}
               />
             ))}
-          </div>
+          </motion.div>
 
           <button
             onClick={handleHide}
