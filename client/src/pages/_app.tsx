@@ -26,11 +26,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         />
         <meta
           name="keywords"
-          content="Frontend Development, Web Design,Responsive Web Development,User Experience (UX),User Interface (UI),HTML5,CSS3,JavaScript,jQuery,React.js,Angular.js,Vue.js,Bootstrap,Mobile-First Design,Cross-Browser Compatibility,Accessibility,Performance Optimization,Code Efficiency,Website Maintenance,Portfolio Showcase, Frontend Frameworks,CSS Frameworks,Progressive Web Apps (PWA),Responsive Design,Mobile Optimization,Cross-Platform Development,JavaScript Libraries,Web Animation,UI/UX Design Principles,Wireframing,Prototyping,A/B Testing,Performance Monitoring,Version Control (Git),Frontend Tools and Technologies,Frontend Testing,Web Development Trends,Browser Compatibility Testing,Debugging,Frontend Security"
+          content="Frontend Development, Web Design,Responsive Web Development,User Experience (UX),User Interface (UI),HTML5,CSS3,JavaScript,jQuery,React.js,Bootstrap,Mobile-First Design,Cross-Browser Compatibility,Accessibility,Performance Optimization,Code Efficiency,Website Maintenance,Portfolio Showcase, Frontend Frameworks,CSS Frameworks,Progressive Web Apps (PWA),Responsive Design,Mobile Optimization,Cross-Platform Development,JavaScript Libraries,Web Animation,UI/UX Design Principles,Wireframing,Prototyping,A/B Testing,Performance Monitoring,Version Control (Git),Frontend Tools and Technologies,Frontend Testing,Web Development Trends,Browser Compatibility Testing,Debugging,Frontend Security"
         />
         <meta
           name="google-site-verification"
-          content="kFXzOWt-zLMwRqqGlPyUXKTworDZrhWV0Oh7_8pMdno"
+          content="qkCs99kCGgIKxcilmw5i4tT1hfmq-H8KHNLnKvpw"
         />
         <link rel="canonical" href="https://olamilekan-one.vercel.app" />
         <meta name="robots" content="INDEX,FOLLOW"></meta>
