@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         />
         <meta
           name="google-site-verification"
-          content="qkCs99kCGgIKxcilmw5i4tT1hfmq-H8KHNLnKvpw"
+          content="kFXzOWt-zLMwRqqGlPyUXKTworDZrhWV0Oh7_8pMdno"
         />
         <link rel="canonical" href="https://olamilekan-one.vercel.app" />
         <meta name="robots" content="INDEX,FOLLOW"></meta>
