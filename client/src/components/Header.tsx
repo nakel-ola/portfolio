@@ -24,11 +24,11 @@ const Header = () => {
       Icon: IoMailOutline,
     },
     {
-      link: "https://www.instagram.com/lakky__t/",
+      link: "https://www.instagram.com/nakel.ola",
       Icon: IoLogoInstagram,
     },
     {
-      link: "https://github.com/olamilekan21",
+      link: "https://github.com/nakel-ola",
       Icon: IoLogoGithub,
     },
   ];
