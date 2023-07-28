@@ -1,0 +1,40 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Welcome to my Portfolio GitHub repository! 🎉
+
+I'm excited to showcase my work and achievements here. This repository represents the culmination of my coding journey, where creativity and dedication meet to create meaningful projects.
+
+Feel free to explore the codebase and delve into the projects that demonstrate my skills and passion. Your feedback and suggestions are highly valued, so don't hesitate to reach out!
+
+I'm constantly working on new ideas and improvements, so make sure to follow this repository to stay updated on my latest endeavors.
+
+Thank you for visiting, and I hope my portfolio inspires and sparks curiosity. Let's connect and make the coding world a better place, one project at a time!
+
+Happy exploring! 🚀
+
+Nakel"
+        pr-message: "Thank you for your First Pull Request to my Portfolio Repo! 🎉
+
+I'm thrilled to see your contribution and appreciate your interest in making my portfolio even better.
+
+Your pull request is a significant step towards fostering an engaging and polished showcase of my work. I'll carefully review your changes and merge them once they align with the vision of this portfolio.
+
+Open-source is all about collaboration and learning from one another, and I'm glad you've chosen to be a part of this journey. Feel free to explore more areas to contribute, suggest new features, or even share your own project ideas.
+
+Keep up the fantastic work, and together, let's take my portfolio to new heights!
+
+Happy coding! 🚀
+
+Nakel"
