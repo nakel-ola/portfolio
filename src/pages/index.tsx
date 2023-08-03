@@ -48,7 +48,7 @@ export default function Home({
           name="description"
           content="Personal website for Nunu Olamilekan"
         />
-        <link rel="icon" href="/logo-search-grid-2x.png" />
+        <link rel="icon" href="/n-logo.png" />
       </Head>
       <div className="flex-1 min-h-screen flex flex-col items-center">
         <Header />
