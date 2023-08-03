@@ -40,7 +40,6 @@ const PopUpCard = (props: Props) => {
 
   return (
     <motion.section
-      layoutId={_id}
       className="fixed top-0 w-full z-[9999] h-full bg-neutral-900/50 grid place-items-center text-white"
     >
       <motion.div
