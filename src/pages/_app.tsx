@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <meta
           key="og:image"
           property="og:image"
-          content={`https://olamilekan-one.vercel.app/logo-search-grid-2x.png`}
+          content={`https://olamilekan-one.vercel.app/n-logo.png`}
         />
         <meta
           name="keywords"
